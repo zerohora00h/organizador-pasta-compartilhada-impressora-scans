@@ -2,7 +2,7 @@
   font-family: 'Inter';
   font-display: swap;
   font-weight: 400 700;
-  src: url('fonts/Inter-Regular-Bold.ttf') format('truetype');
+  src: url('assets/fonts/Inter-Regular-Bold.ttf') format('truetype');
 }
 
 @layer cssreset {
@@ -148,6 +148,16 @@ input.success {
 input.success::placeholder {
   color: hsl(141, 71%, 45%);
 }
+
+input.error {
+  color: hsl(348, 100%, 61%);
+  border-color: hsl(348, 100%, 61%);
+}
+
+input.error::placeholder {
+  color: hsl(348, 100%, 61%);
+}
+
 
 .hide {
   display: none;

@@ -13,10 +13,11 @@
     <h1>Imagens Salvas</h1>
 
     <div class="img-container">
+
       <div class="img-card">
-        <picture><img src="img.png" alt="Documento" width="200px"></picture>
+        <picture><img src="assets/img.png" alt="Documento" width="200px"></picture>
         <div>
-          <form action="" class="img-form">
+          <form action="#" class="img-form">
             <select name="img-type" id="img-type">
               <option value="doc">Documento com Foto</option>
               <option value="comprovante">Comprovante de Residência</option>
@@ -24,33 +25,16 @@
             </select>
             <div class="img-name">
               <input type="text" name="img-name" id="img-name" placeholder="Nome do RF">
-              <button type="submit">
-                <img src="save.svg">
+              <button type="submit" id="btn-enviar">
+                <img src="assets/edit.svg">
               </button>
             </div>
           </form>
         </div>
       </div>
 
-      <div class="img-card">
-        <picture><img src="img.png" alt="Documento" width="200px"></picture>
-        <div>
-          <form action="" class="img-form">
-            <select name="img-type" id="img-type">
-              <option value="doc">Documento com Foto</option>
-              <option value="comprovante">Comprovante de Residência</option>
-              <option value="termo">Termo de Responsabilidade</option>
-            </select>
-            <div class="img-name">
-              <input type="text" name="img-name" id="img-name" placeholder="Nome do RF">
-              <button type="submit">
-                <img src="save.svg">
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
     </div>
+
   </main>
 
   <script src="script.js"></script>
