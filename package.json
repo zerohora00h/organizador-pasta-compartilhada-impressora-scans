@@ -1,0 +1,13 @@
+{
+  "name": "organizador-pasta-compartilhada-impressora-scans",
+  "version": "1.0.0",
+  "description": "Um organizador simples de pasta compartilhada de impressora/scans na sua rede local, de empresas ou residências.",
+  "main": "App.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ."
+  },
+  "keywords": ["organizador", "pasta", "compartilhada", "impressora", "scans", "rede", "local", "empresas", "residências"],
+  "author": "ZeroHora",
+  "license": "ISC"
+}

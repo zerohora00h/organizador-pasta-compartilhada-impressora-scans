@@ -1,0 +1,154 @@
+@font-face {
+  font-family: 'Inter';
+  font-display: swap;
+  font-weight: 400 700;
+  src: url('fonts/Inter-Regular-Bold.ttf') format('truetype');
+}
+
+@layer cssreset {
+  *,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+* {
+    margin: 0;
+}
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+#root,
+#__next {
+    isolation: isolate;
+}
+
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+  margin: 2rem;
+
+  background: hsl(215, 46%, 89%);
+}
+
+h1 {
+  color: hsl(215, 46%, 20%);
+  text-align: center;
+}
+
+.img-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+  justify-content: center;
+}
+
+@media (max-width: 540px) {
+  .img-container {
+    flex-direction: column;
+  }
+}
+
+.img-card{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+
+  font-size: 0.9rem;
+  font-weight: 500;
+
+  border-radius: 1rem;
+  padding: 0.5rem;
+  background: white;
+}
+
+.img-card picture {
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.img-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-name {
+  display: flex;
+  gap: 0.5rem;
+}
+
+select {
+  max-width: 12rem;
+  border-radius: 0.5rem;
+  border: 1px solid hsl(216, 77%, 58%);
+  padding: 0rem 0.5rem;
+  height: 2rem;
+}
+
+input[type="text"] {
+  max-width: 9rem;
+  border-radius: 0.5rem;
+  border: 1px solid hsl(216, 77%, 58%);
+  padding: 0rem 0.5rem;
+}
+
+button {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  background: hsl(216, 77%, 58%);
+  color: white;
+  cursor: pointer;
+}
+
+button > img {
+  min-width: 1.3rem;
+}
+
+input.success {
+  color: hsl(141, 71%, 45%);
+  
+  border-color: hsl(141, 71%, 45%);
+}
+
+input.success::placeholder {
+  color: hsl(141, 71%, 45%);
+}
+
+.hide {
+  display: none;
+}
