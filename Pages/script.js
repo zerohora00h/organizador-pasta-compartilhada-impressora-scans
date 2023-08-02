@@ -56,7 +56,27 @@ async function renameImage(event) {
     }
 }
 
-
+function moveFile(file) {
+    const formData = new FormData();
+    formData.append('originalName', file);
+  
+    fetch('/move', {
+      method: 'POST',
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.ok) {
+          console.log('Arquivo movido com sucesso:', file);
+        } else {
+          console.error('Erro ao mover arquivo:', data.message);
+        }
+      })
+      .catch((error) => {
+        console.error('Erro ao realizar a requisição:', error);
+      });
+  }
+  
 
 // Função para popular a img-container
 async function populateImgContainer() {
@@ -75,7 +95,12 @@ async function populateImgContainer() {
         imageList.forEach((image) => {
             const imgCardHTML = `
             <div class="img-card">
-                <picture><img src="images/${image.file}" alt="Documento" width="200px"></picture>
+                <picture>
+                    <img src="images/${image.file}" alt="Documento" width="200px">
+                    <button class="btn-ok" onclick="moveFile(${image.file})">
+                        <img src="assets/ok.svg" alt="Confirmar e Mover">
+                    </button>
+                </picture>
                 <div>
                 <form class="img-form" onsubmit="renameImage(event)">
                     <input type="hidden" name="original-name" value="${image.file}">
@@ -86,7 +111,7 @@ async function populateImgContainer() {
                     </select>
                     <div class="img-name">
                         <input type="text" name="img-name" placeholder="Nome do RF" value="${image.name}" onfocus="removeError(this)">
-                        <button type="submit">
+                        <button type="submit" class="btn-enviar">
                             <img src="assets/save.svg">
                         </button>
                     </div>

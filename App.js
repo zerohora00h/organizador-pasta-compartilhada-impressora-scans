@@ -34,9 +34,9 @@ function renameImage(image, type, newName) {
   let newFile
 
   if (docType) {
-    newFile = `${newName ? newName : name}-${type}.${ext}`
+    newFile = `${newName ? newName.toUpperCase() : name.toUpperCase()}-${type}.${ext}`
   } else {
-    newFile = `${newName ? newName : imageName}-${type}.${ext}`
+    newFile = `${newName ? newName.toUpperCase() : imageName.toUpperCase()}-${type}.${ext}`
   }
 
   const oldPath = path.join(__dirname, 'pages', 'images', image)
@@ -78,6 +78,32 @@ app.get('/images', (req, res) => {
     res.json(imageList)
   })
 })
+
+// Rota para mover uma imagem para a pasta "verificados"
+app.post('/move', (req, res) => {
+  const originalName = req.body.originalName;
+
+  if (!originalName) {
+    return res.status(400).json({ ok: 0, message: 'Parâmetros inválidos.' });
+  }
+
+  const imageDirectory = path.join(__dirname, 'pages', 'images');
+  const verifiedDirectory = path.join(__dirname, 'pages', 'verificados');
+
+  // Verifica se o arquivo original existe na pasta "images"
+  if (!fs.existsSync(path.join(imageDirectory, originalName))) {
+    return res.status(404).json({ ok: 0, message: 'Imagem não encontrada.' });
+  }
+
+  // Move o arquivo para a pasta "verificados"
+  const oldPath = path.join(imageDirectory, originalName);
+  const newPath = path.join(verifiedDirectory, originalName);
+
+  fs.renameSync(oldPath, newPath);
+
+  // Resposta de sucesso
+  res.json({ ok: 1, message: 'Arquivo movido com sucesso.' });
+});
 
 app.post('/rename', (req, res) => {
   //console.log(req.body)

@@ -79,6 +79,7 @@ h1 {
 }
 
 .img-card{
+  --display: none;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -96,6 +97,11 @@ h1 {
 .img-card picture {
   border-radius: 1rem;
   overflow: hidden;
+  position: relative;
+}
+
+picture:hover{
+  --display: block;
 }
 
 .img-form {
@@ -126,7 +132,7 @@ input[type="text"] {
   padding: 0rem 0.5rem;
 }
 
-button {
+.btn-enviar {
   padding: 0.5rem;
   border-radius: 0.5rem;
   border: none;
@@ -135,7 +141,34 @@ button {
   cursor: pointer;
 }
 
-button > img {
+.btn-enviar > img {
+  min-width: 1.3rem;
+}
+
+.btn-ok {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.4rem;
+  border-radius: 0rem 1rem 0rem;
+  border: none;
+  background: hsl(216, 77%, 58%);
+  color: white;
+  cursor: pointer;
+  display: var(--display);
+}
+
+.btn-ok:hover {
+  background: hsl(216, 77%, 58%, 0.5);
+}
+
+@media (max-width: 540px) {
+  .btn-ok {
+    display: none;
+  }
+}
+
+.btn-ok > img {
   min-width: 1.3rem;
 }
 
