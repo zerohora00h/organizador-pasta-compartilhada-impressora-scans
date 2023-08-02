@@ -25,7 +25,7 @@ Esse projeto está sendo compartilhado apenas para fins de estudo.
 - abra o Instalar.bat e aguarde a instalação das dependencias
 - abra o Iniciar Servidor Local.bat
 
-Mas tudo virá para a necessidade que eu precisava, então se você quiser usar, terá que fazer algumas modificações no código.
+Tudo vem funcionando para a necessidade que eu tinha, então se você quiser usar, terá que fazer algumas modificações no código, a não ser que queira usar exatamente como está.
 
 Deixei algumas coisas prontas, como um executal que inicia o servidor e logo da o endereço local para todos acessarem, mas estou supondo que quem queira usar isso tambem entende um pouco de programacao, do contrario, fazer modificacoes no codigo pode ser um pouco complicado, mas nao impossivel.
 
