@@ -62,10 +62,18 @@ app.get('/images', (req, res) => {
           file = renameImage(file, defaultType)
         }
 
+        // Obtém informações sobre a data da última modificação do arquivo
+        const imagePath = path.join(imageDirectory, file);
+        const stats = fs.statSync(imagePath);
+        const lastModified = stats.mtime;
+
         const [imageName, ext] = file.split('.')
         const [name, type] = imageName.split('-')
-        return { file: file, name: name, type: type }
+        return { file: file, name: name, type: type, lastModified: lastModified }
       })
+
+    // Ordena a lista de imagens com base na data da última modificação (mais recente primeiro)
+    imageList.sort((a, b) => b.lastModified - a.lastModified);
 
     res.json(imageList)
   })
