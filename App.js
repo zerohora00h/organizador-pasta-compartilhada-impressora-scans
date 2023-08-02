@@ -108,7 +108,7 @@ function startServer() {
     if (ipv4) {
       console.log(`Endereço local: http://${ipv4}:${port} - compartilhe com os outros na rede (Wifi ou cabo)`);
     } else {
-      console.log('Não foi encontrado um segundo endereço IPv4 local que comece com "192.168."');
+      console.log('Não foi encontrado um endereço IPv4 local que comece com "192.168."');
     }
 
     console.log(`Servidor está executando em: http://localhost:${port}`)
