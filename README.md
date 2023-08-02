@@ -1,6 +1,6 @@
 # Contexto Rápido
 
- Eu queria resolver um problema no trabalho, onde precisamos escanear documentos, porem nem todos tem acesso direto a computadores e fazer isso pelo celular pode ser muito invasivo ja que é um objeto pessoal e nao deveria guardar os documentos necessarios, entao minha ideia foi criar uma pagina onde apos scanear um documento na impressora e salvar para uma pasta local que está no meu computador, outros poderiam ter acesso para organizar os scans e definir qual documento aquele arquivo se trata e quem é o dono dele.
+ Eu queria resolver um problema no trabalho, onde precisamos escanear documentos, porem nem todos tem acesso direto a computadores e fazer isso pelo celular pode ser muito invasivo ja que é um objeto pessoal e nao deveria guardar os documentos necessarios. Entao minha ideia foi criar uma pagina onde apos scanear um documento na impressora e salvar para uma pasta local que está no meu computador, outros poderiam ter acesso para organizar os scans e definir qual documento aquele arquivo se trata e quem é o dono dele.
 
 ![Screenshot](./screenshots/exemplo.png)
 
