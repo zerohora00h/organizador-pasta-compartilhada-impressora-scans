@@ -95,10 +95,19 @@ app.post('/move', (req, res) => {
     return res.status(404).json({ ok: 0, message: 'Imagem não encontrada.' });
   }
 
-  // Move o arquivo para a pasta "verificados"
-  const oldPath = path.join(imageDirectory, originalName);
-  const newPath = path.join(verifiedDirectory, originalName);
+  const [name, type] = originalName.split('-');
 
+  const newName = `${name.trim()} - ${type}`;
+  const newPath = path.join(verifiedDirectory, name.trim(), newName);
+
+  // Cria a pasta "NOME DO RF" se ainda não existir
+  const rfDirectory = path.join(verifiedDirectory, name.trim());
+  if (!fs.existsSync(rfDirectory)) {
+    fs.mkdirSync(rfDirectory);
+  }
+
+  // Move o arquivo para a pasta "verificados/NOME DO RF"
+  const oldPath = path.join(imageDirectory, originalName);
   fs.renameSync(oldPath, newPath);
 
   // Resposta de sucesso

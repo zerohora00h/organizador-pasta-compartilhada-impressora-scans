@@ -56,18 +56,24 @@ async function renameImage(event) {
     }
 }
 
-function moveFile(file) {
-    const formData = new FormData();
-    formData.append('originalName', file);
+async function moveFile(file) {
+    const requestData = new URLSearchParams();
+    requestData.append('originalName', file);
+
+    if(!confirm('Deseja mover o arquivo?')) return;
   
     fetch('/move', {
-      method: 'POST',
-      body: formData,
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: requestData.toString()
     })
       .then((response) => response.json())
-      .then((data) => {
+      .then(async (data) => {
         if (data.ok) {
           console.log('Arquivo movido com sucesso:', file);
+          await populateImgContainer();
         } else {
           console.error('Erro ao mover arquivo:', data.message);
         }
@@ -76,6 +82,7 @@ function moveFile(file) {
         console.error('Erro ao realizar a requisição:', error);
       });
   }
+  
   
 
 // Função para popular a img-container
@@ -97,7 +104,7 @@ async function populateImgContainer() {
             <div class="img-card">
                 <picture>
                     <img src="images/${image.file}" alt="Documento" width="200px">
-                    <button class="btn-ok" onclick="moveFile(${image.file})">
+                    <button class="btn-ok" onclick="moveFile('${image.file}')">
                         <img src="assets/ok.svg" alt="Confirmar e Mover">
                     </button>
                 </picture>
